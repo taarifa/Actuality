@@ -1,0 +1,52 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Filter vehicles</h3></div>
+  <div class="panel-body">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label for="vehicleKind">Vehicle kind</label>
+        <select class="form-control" id="vehicleKind" ng-model="where.kind" ng-change="filterStatus()"
+          ng-options="k for k in ['car',
+                    'van',
+                    'light truck',
+                    'semitrailer truck',
+                    'pick-up truck',
+                    'dumper truck',
+                    'tipper truck',
+                    'flatbed truck',
+                    'tank truck',
+                    'refridgerated truck',
+                    'garbage truck',
+                    'lumber truck',
+                    'military truck',
+                    'tractor']">
+          <option value="">all</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="licensePlate">License plate</label>
+        <input type="text" class="form-control" id="licensePlate" ng-model="where.license_plate" ng-change="filterStatus()">
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default" ng-repeat="vehicle in vehicles">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a class="glyphicon glyphicon-cog" href="#/vehicles/{{vehicle._id}}"
+        title="Triage"></a>
+      vehicle for vehicle {{vehicle.license_plate}}
+      <span class="pull-right small">submitted on {{vehicle._created}}</span>
+    </h3>
+  </div>
+  <div class="panel-body panel-body-nopad">
+    <div class="col-sm-6">
+      <h4>Metadata</h4>
+      <dl class="dl-horizontal">
+        <dt ng-repeat-start="(k, v) in vehicle" ng-if="k[0] !=
+        '_'">{{k}}</dt>
+        <dd ng-repeat-end ng-if="k[0] != '_'">{{v}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>

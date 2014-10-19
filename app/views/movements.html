@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Filter movements</h3></div>
+  <div class="panel-body">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label for="reportStatus">Report status</label>
+        <select class="form-control" id="reportStatus" ng-model="where.report_status" ng-change="filterStatus()"
+          ng-options="k for k in ['open', 'closed']">
+          <option value="">all</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="facilityStatus">Movement status</label>
+        <select class="form-control" id="facilityStatus" ng-model="where.status" ng-change="filterStatus()"
+          ng-options="k for k in ['legitimate', 'illegal', 'unknown']">
+          <option value="">all</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="licensePlate">License plate</label>
+        <input type="text" class="form-control" id="licensePlate" ng-model="where.license_plate" ng-change="filterStatus()">
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-default" ng-repeat="movement in movements"
+  ng-class="{'panel-info': movement.report_status=='closed', 'panel-danger': movement.report_status=='open'&&movement.status=='illegal', 'panel-warning': movement.report_status=='open'&&movement.status=='unknown', 'panel-success': movement.report_status=='open'&&movement.status=='legitimate'}">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a class="glyphicon glyphicon-cog" href="#/movements/{{movement._id}}"
+        title="Triage"></a>
+      Movement for vehicle {{movement.license_plate}}
+      <span class="pull-right small">submitted on {{movement._created}}</span>
+    </h3>
+  </div>
+  <div class="panel-body panel-body-nopad">
+    <div class="col-sm-6">
+      <h4>Metadata</h4>
+      <dl class="dl-horizontal">
+        <dt ng-repeat-start="(k, v) in movement" ng-if="k[0] !=
+        '_'">{{k}}</dt>
+        <dd ng-repeat-end ng-if="k[0] != '_'">{{v}}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
