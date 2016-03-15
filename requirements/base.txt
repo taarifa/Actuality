@@ -1,4 +1,4 @@
-Eve==0.4
+Eve==0.6.2
 --allow-external TaarifaAPI
 --allow-unverified TaarifaAPI
 -e git+https://github.com/taarifa/TaarifaAPI#egg=TaarifaAPI-dev
