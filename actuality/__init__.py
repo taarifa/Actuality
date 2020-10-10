@@ -1,1 +1,1 @@
-from actuality import app  # noqa
+from .actuality import app  # noqa
