@@ -270,20 +270,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // ngAnnotate tries to make the code safe for minification automatically by
-    // using the Angular long form for dependency injection. It doesn't work on
-    // things like resolve or inject so those have to be done manually.
-    ngAnnotate: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
-      }
-    },
-
     // Replace Google CDN references
     cdnify: {
       dist: {
@@ -375,9 +361,6 @@ module.exports = function (grunt) {
     },
   });
 
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-contrib-uglify-es');
-
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -413,7 +396,6 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    // 'ngAnnotate',
     'copy:dist',
     'cssmin',
     'uglify',
