@@ -376,6 +376,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-bower-task');
+  grunt.loadNpmTasks('grunt-contrib-uglify-es');
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
@@ -412,7 +413,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngAnnotate',
+    // 'ngAnnotate',
     'copy:dist',
     'cssmin',
     'uglify',
