@@ -35,8 +35,8 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "repository" : {
-    "type" : "git",
+  "repository": {
+    "type": "git",
     "url": "https://github.com/taarifa/Actuality.git"
   },
   "scripts": {
