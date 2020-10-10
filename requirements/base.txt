@@ -1,6 +1,5 @@
-Eve==0.6.2
---allow-external TaarifaAPI
---allow-unverified TaarifaAPI
+Flask==1.1.2
+Eve==1.1.2
 -e git+https://github.com/taarifa/TaarifaAPI#egg=TaarifaAPI-dev
 Flask-Script==2.0.5
 gunicorn==18.0
