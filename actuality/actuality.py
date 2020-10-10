@@ -1,9 +1,5 @@
-import json
 import mimetypes
-from eve.render import send_response
-from flask import request, send_from_directory
-from werkzeug.contrib.cache import SimpleCache
-cache = SimpleCache()
+from flask import send_from_directory
 
 from taarifa_api import api as app, main
 
@@ -44,6 +40,7 @@ def index():
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(app.root_path + '/dist/', 'favicon.ico')
+
 
 if __name__ == '__main__':
     main()
