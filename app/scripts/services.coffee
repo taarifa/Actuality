@@ -55,11 +55,11 @@ angular.module('actualityApp')
       options = _.extend(defaults, opts)
 
       osmLayer = L.tileLayer(
-        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         attribution: '(c) OpenStreetMap')
 
       satLayer = L.tileLayer(
-        'http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
         attribution: '(c) Esri')
 
       baseMaps =
