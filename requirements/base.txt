@@ -1,3 +1,4 @@
+dnspython==2.0.0
 Flask==1.1.2
 Eve==1.1.2
 -e git+https://github.com/taarifa/TaarifaAPI@0.2.0#egg=taarifaapi
