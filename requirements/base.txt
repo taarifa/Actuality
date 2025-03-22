@@ -3,4 +3,4 @@ Flask==2.3.2
 Eve==1.1.2
 -e git+https://github.com/taarifa/TaarifaAPI@0.2.0#egg=taarifaapi
 Flask-Script==2.0.5
-gunicorn==22.0.0
+gunicorn==23.0.0
